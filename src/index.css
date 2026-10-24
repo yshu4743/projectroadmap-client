@@ -1,0 +1,423 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================================
+   AXIS INDUSTRIAL — adapted for ee lakhyam (Weekly Digital Magazine)
+   Hard 4px borders · 8px offset shadows · Space Grotesk / JetBrains Mono
+   ===================================================================== */
+
+@layer base {
+  :root {
+    --paper: #f2f0eb;
+    --surface: #e9e5db;
+    --ink: #0c0c0a;
+    --muted: #6e6a61;
+    --accent: #ff3e00;
+    --safe: #00e05a;
+    --amber: #ffaa00;
+    --line: rgba(12, 12, 10, 0.14);
+  }
+
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--paper);
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* ---------- Typography / Malayalam ---------- */
+  .malayalam {
+    font-family: 'Anek Malayalam', sans-serif;
+    font-weight: 400;
+    line-height: 1.95;
+    letter-spacing: 0.01em;
+  }
+  .malayalam-bold {
+    font-family: 'Anek Malayalam', sans-serif;
+    font-weight: 700;
+  }
+
+  .editorial-rule {
+    border-color: var(--line);
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .eyebrow::before {
+    content: '//';
+    color: var(--accent);
+  }
+
+  .section-head {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 4.5vw, 3.4rem);
+  }
+
+  /* ---------- Tags ---------- */
+  .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 0.3em 0.7em;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    white-space: nowrap;
+  }
+  .tag--filled {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .tag--accent {
+    background: var(--accent);
+    color: var(--paper);
+    border-color: var(--accent);
+  }
+  .tag--safe {
+    background: var(--safe);
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  /* ---------- Buttons (brutal) ---------- */
+  .btn-primary,
+  .btn-secondary {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8em 1.7em;
+    border: 2px solid var(--ink);
+    cursor: pointer;
+    transition: none;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--paper);
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .btn-primary:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--ink);
+  }
+  .btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--ink);
+  }
+  .btn-secondary {
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--paper);
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--ink);
+  }
+  .btn-secondary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 var(--ink);
+  }
+  .btn-ghost {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 0.4em 0.8em;
+    color: var(--muted);
+    transition: color 0s;
+  }
+  .btn-ghost:hover {
+    color: var(--accent);
+  }
+  .btn-primary:disabled,
+  .btn-secondary:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  /* ---------- Cards ---------- */
+  .card {
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+
+  /* ---------- Forms ---------- */
+  .label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+  }
+  .input-base {
+    width: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink);
+    background: #ffffff;
+    border: 2px solid var(--ink);
+    padding: 0.6em 0.9em;
+    border-radius: 0;
+  }
+  .input-base::placeholder {
+    color: rgba(110, 106, 97, 0.55);
+  }
+  .input-base:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 3px 3px 0 var(--accent);
+  }
+  select.input-base {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* ---------- Editorials ---------- */
+  .sidebar-heading {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+  }
+
+  /* ---------- Header (theme) ---------- */
+  .site-header {
+    height: 44px;
+    background: var(--ink);
+    color: var(--paper);
+    border-bottom: 2px solid var(--accent);
+  }
+  .site-header__nav a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(242, 240, 235, 0.55);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0s, color 0s;
+  }
+  .site-header__nav a:first-child {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .site-header__nav a:hover {
+    background: var(--accent);
+    color: var(--paper);
+  }
+  .site-header__nav a.active {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--paper);
+  }
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--safe);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* ---------- Hero / grid ---------- */
+  .bg-grid {
+    background-image: linear-gradient(rgba(12, 12, 10, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(12, 12, 10, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    font-size: clamp(3.2rem, 11vw, 10rem);
+  }
+  .hero-title .dot {
+    color: var(--accent);
+  }
+  .hero-scroll-cue {
+    writing-mode: vertical-rl;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    opacity: 0.4;
+  }
+  .hero-scroll-cue::after {
+    content: '';
+    width: 1px;
+    height: 46px;
+    background: var(--ink);
+    animation: scrollPulse 2s ease-in-out infinite;
+    margin-top: 0.8rem;
+  }
+
+  /* ---------- Ticker ---------- */
+  .ticker {
+    border-top: 4px solid var(--ink);
+    border-bottom: 4px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    overflow: hidden;
+    padding: 1rem 0;
+  }
+  .ticker--accent {
+    background: var(--accent);
+    border-color: var(--ink);
+  }
+  .ticker--accent .ticker__item::after {
+    background: var(--paper);
+  }
+  .ticker__track {
+    display: flex;
+    width: max-content;
+    animation: tickerScroll 26s linear infinite;
+  }
+  .ticker--reverse .ticker__track {
+    animation-direction: reverse;
+  }
+  .ticker__item {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.1rem, 2.4vw, 2rem);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    padding: 0 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+  }
+  .ticker__item::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ---------- Reveal ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Article typography (reader) ---------- */
+.prose-article {
+  color: var(--ink);
+}
+.prose-article h1,
+.prose-article h2,
+.prose-article h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 1.4em 0 0.5em;
+}
+.prose-article h1 { font-size: 1.6rem; }
+.prose-article h2 { font-size: 1.25rem; }
+.prose-article h3 { font-size: 1.05rem; }
+.prose-article p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.92rem;
+  line-height: 1.85;
+  margin: 1em 0;
+}
+.prose-article blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1.1em;
+  font-style: normal;
+  opacity: 0.75;
+  margin: 1.2em 0;
+}
+.prose-article a { color: var(--accent); text-decoration: underline; }
+.prose-article ul, .prose-article ol { margin: 1em 0; padding-left: 1.4em; }
+.prose-article li { list-style: disc; margin: 0.3em 0; }
+
+/* Malayalam body copy gets generous line height + the Anek Malayalam script font */
+.prose-article.malayalam h1,
+.prose-article.malayalam h2,
+.prose-article.malayalam h3 {
+  font-family: 'Anek Malayalam', sans-serif;
+  text-transform: none;
+}
+.prose-article.malayalam p,
+.prose-article p.malayalam,
+.malayalam-block p {
+  font-family: 'Anek Malayalam', sans-serif;
+  font-size: 1.05rem;
+  line-height: 2.05;
+}
+
+/* ---------- Animations ---------- */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.25; transform: scaleY(0.5); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
